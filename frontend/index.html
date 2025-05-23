@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>AI Blog Generator</title>
+</head>
+
+<body class="flex flex-col min-h-screen bg-gray-100 font-sans antialiased">
+    
+    <!-- Navbar -->
+    <div class="container mx-auto">
+        <nav class="bg-blue-600 p-4 text-white flex justify-between items-center">
+            <div>
+                <h1 class="text-3xl font-bold">AI Blog Generator</h1>
+            </div>
+            <div>
+                <a href="#" class="text-white hover:underline">Logout</a>
+            </div>
+        </nav>
+    </div>
+    <br>
+
+    <!-- Main -->
+    <div class="flex-grow container mx-auto mt-10 px-4 sm:px-0">
+        <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+
+            <!-- Introduction -->
+            <div class="text-center container mx-auto mt-4">
+                <h2 class="text-2xl font-semibold mb-4">Create Your Blog Post</h2>
+                <p class="text-gray-700">
+                    Generate high quality blog posts from YouTube videos using AI.
+                    Simply enter the URL of the YouTube video below and click "Generate".
+                    The AI will analyze the video and create a blog post based on its content.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="app">
+        <!-- Content will go here -->
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
