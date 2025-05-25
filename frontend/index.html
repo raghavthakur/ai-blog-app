@@ -6,6 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>AI Blog Generator</title>
+
+    <style>
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        .loading-indicator {
+            width: 100px;
+            height: 100px;
+            margin: 110px auto 0;
+            border: 8px solid #2563eb;
+            border-radius: 50%;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+            animation: spin 1s linear infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
 </head>
 
 <body class="flex flex-col min-h-screen bg-gray-100 font-sans antialiased">
@@ -50,15 +86,23 @@
                     </div>
                 </div>
 
+                <!-- TODO: add loading circle here -->
+                <div id="loadingIndicator" class="loading-indicator"></div>
+
                 <!-- Generated Blog Display -->
                 <section class="mt-10 flex-grow">
                     <h2 class="text-xl mb-4 font-semibold">Generated Blog Article</h2>
                     <div id="blogContent" class="mt-2 text-grey-700 y-4">
-                        <!-- TODO: add loading circle here -->
                         <p class="text-gray-500">Your generated blog post will appear here.</p>
                 </section>
             </div>
         </div>
+        <br>
+        <footer>
+            <div class="text-center py-4 text-black mt-4">
+                Created by <a href="https://raghavthakur.dev">Raghav Thakur</a>
+            </div>
+        </footer>
     </div>
     <script src="main.js"></script>
 </body>
