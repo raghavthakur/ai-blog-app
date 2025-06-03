@@ -16,8 +16,8 @@
                 <h1 class="text-3xl font-bold">AI Blog Generator</h1>
             </div>
             <div>
-                <a href="#" class="text-white hover:underline">Login</a>
-                <a href="#" class="text-white hover:underline">Signup</a>
+                <a href="login" class="text-white hover:underline">Login</a>
+                <a href="signup" class="text-white hover:underline">Signup</a>
             </div>
         </nav>
     </div>
@@ -27,7 +27,16 @@
         <div class="bg-white p-8 shadow-md rounded-lg max-w-md w-full">
 
             <!-- Signup Form -->
-            <form class="space-y-4">
+            <form class="space-y-4" action="/signup" method="POST">
+                {% csrf_token %} <!-- CSRF django token for security -->
+
+                <!-- Display error message if exists during signup -->
+                {% if error_message %}
+                <div class="text-center mb-4 style=" color: red;">
+                    <h2>{{ error_message }}</h2>
+                </div>
+                {% endif %}
+
                 <h2 class="text-xl font-semibold">Signup</h2>
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
@@ -40,13 +49,14 @@
                         class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                 </div>
                 <div>
-                    <label for="confirmPassword" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                    <label for="confirmPassword" class="block text-sm font-medium text-gray-700">Confirm
+                        Password</label>
                     <input type="password" id="confirmPassword" name="confirmPassword" required
                         placeholder="Retype Password"
                         class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                 </div>
                 <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700">
-                    Login
+                    Signup
             </form>
 
         </div>
