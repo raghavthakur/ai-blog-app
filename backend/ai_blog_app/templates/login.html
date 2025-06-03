@@ -27,7 +27,16 @@
         <div class="bg-white p-8 shadow-md rounded-lg max-w-md w-full">
 
             <!-- Login Form -->
-            <form class="space-y-4">
+            <form class="space-y-4" actopn="/login" method="POST">
+                {% csrf_token %} <!-- CSRF django token for security -->
+
+                <!-- Display error message if exists during signup -->
+                {% if error_message %}
+                <div class="text-center mb-4" style=" color: red;">
+                    <h2>{{ error_message }}</h2>
+                </div>
+                {% endif %}
+
                 <h2 class="text-xl font-semibold">Login</h2>
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
