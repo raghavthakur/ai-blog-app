@@ -14,6 +14,8 @@ def user_logout(request):
 
 def user_signup(request):
     if request.method == 'POST':
+        first_name = request.POST.get('firstName')
+        last_name = request.POST.get('lastName')
         email = request.POST.get('email')
         password = request.POST.get('password')
         repeat_password = request.POST.get('confirmPassword')
@@ -21,13 +23,16 @@ def user_signup(request):
         if password == repeat_password:
             try:
                 user = User.objects.create_user(
-                    email,
-                    password
+                    username=email,  # Use email as username
+                    email=email,
+                    password=password,
+                    first_name=first_name,
+                    last_name=last_name,
                 )
                 user.save()
                 # Automatically log in the user after signup
                 login(request, user)
-                return redirect('index') # Redirect to index view (not template.html) after successful signup
+                return redirect('index') # Redirect to index view (not templates) after successful signup
             except Exception as e:
                 error_message = f"An error occurred during account creation: {str(e)}"
                 return render(request, 'user_signup', {'error': error_message})
